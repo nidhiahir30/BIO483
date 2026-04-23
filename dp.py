@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
 
+from os import getenv
+from dotenv import load_dotenv
+
 import requests
 
-apiKey = "your phamerator API key here" # replace this with your actual phamerator API key
+load_dotenv()
+
+# load the API key from the .env file, or use a placeholder value if the .env file is not found or the API_KEY variable is not set
+apiKey = getenv("API_KEY") or "your phamerator API key here" # replace this with your actual phamerator API key
 if apiKey == "your phamerator API key here":
     print("Please replace the apiKey variable with your actual phamerator API key,\n" \
     "which can be obtained by creating an account on https://phamerator.org and generating\n" \
@@ -11,7 +17,7 @@ if apiKey == "your phamerator API key here":
 
 dataset = "Actino_Draft"
 
-subcluster = "G2" # use the subcluster that you want to analyze, for example "G2" for the G2 subcluster of actinobacteriophages
+subcluster = "C2" # use the subcluster that you want to analyze, for example "G2" for the G2 subcluster of actinobacteriophages
 
 headers = {
     "Authorization": f"Bearer {apiKey}",
