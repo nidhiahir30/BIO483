@@ -89,6 +89,12 @@ def createDPMatrix(phage1, phage2):
             alignedPhams1.append("---")
             alignedPhams2.append(geneMatrix[1][j-1])
             j -= 1
+### Ungapped porrtions of amino acid sequence alignments code
+# taking alignedPhams1 counting because both of them should have the same length - we put that inside the printing alignments because it is defined
+# on line 74 and once within the function and when it is done running are gone therefore i moved the for code in here so it runs within the variable where it is defined
+    for x in range(len(alignedPhams1)):
+        if alignedPhams1[x] != "---" and alignedPhams2[x] != "---":
+            print (alignedPhams1[x], alignedPhams2[x])
 
     # print the aligned lists of phamilies in the correct order (reverse the lists before printing)
     # print two tab-separated lines, one for each aligned list of phamilies, with the phamily names in the same column for both lines
@@ -107,3 +113,12 @@ for i in range(len(phages)):
     for j in range(i + 1, len(phages)):
         print(f"Comparing {phages[i]['phagename']} and {phages[j]['phagename']}...")
         createDPMatrix(phages[i], phages[j])
+
+
+
+
+
+
+
+
+## create loop through aligned comlumns 
